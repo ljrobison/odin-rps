@@ -1,36 +1,50 @@
-function getPlayerSelection() {
-}
+const selectionButtons = document.querySelectorAll('[data-selection]');
+const SELECTIONS = [
+    {
+        name: 'rock',
+        emoji: '✊',
+        beats: 'scissors'
+    },
 
-function getComputerSelection() {
-    const selection = (Math.floor(Math.random() * 3));
+    {
+        name:'paper',
+        emoji: '✋',
+        beats: 'rock'
+    },
 
-    switch (selection){
-        case 0:
-            return "rock";
-            break;
-        case 1:
-            return "paper";
-            break;
-        case 2:
-            return "scissors";
-            break;
+    {
+        name:'scissors',
+        emoji: '✌',
+        beats: 'paper'
     }
+]
 
+selectionButtons.forEach(selectionButton => {
+    selectionButton.addEventListener('click', e => {
+        const selectionName = selectionButton.dataset.selection
+        const selection = SELECTIONS.find(selection => selection.name === selectionName)
+        makeSelection(selection)
+    })
+})
+
+function makeSelection(selection){
+    const computerSelection = randomSelection()
+    const playerWinner = decideWinner(selection, computerSelection)
+    const computerWinner = decideWinner(computerSelection, selection)
+    
+    addSelectionResult(computerSelection, computerWinner)
+    addSelectionResult(selection, playerWinner)
 }
 
-function playRound(playerSelection, computerSelection) {
-    const result = null;
+function randomSelection(){
+    const randomIndex = Math.floor(Math.random() * SELECTIONS.length)
+    return SELECTIONS[randomIndex]
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerSelection();
-        const computerSelection = getComputerSelection();
-        playRound(playerSelection, computerSelection);
-    }
+function decideWinner(selection, computerSelection){
+    return selection.beats === computerSelection.name
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerSelection();
-console.log(playRound(playerSelection, computerSelection));
+function addSelectionResult(selection, winner){
 
+}
