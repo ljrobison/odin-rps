@@ -45,13 +45,46 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    border: 2px solid black;
 }
 
 .result-title-container{
+    display: flex;
+    flex-direction: row;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     font-size: 24px;    
+}
+
+.result-table {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(autofit, minmax(100px, 1ft));
+    grid-template-rows: repeat(autofit, minmax(100px, 1ft));
+}
+
+#playerIdentifier {
+    padding: 10px;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    font-weight:700;
+    text-align: center;
+    border: 2px solid black;
+}
+
+#computerIdentifier {
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+    font-weight: 700;
+    text-align: center;
+    border:2px solid black;
+    padding: 10px;
+}
+
+#column1 {
+
+
+}
+
+#column2 {
+
 }
