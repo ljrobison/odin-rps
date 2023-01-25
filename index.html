@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="scripts/main.js" defer></script>
 
     <meta name="theme-color" content="#fafafa" />
   </head>
@@ -23,9 +24,9 @@
         <nav class="nav-container">
           <h1>Rock Paper Scissors</h1>
           <ul>
-            <li>About</li>
-            <li>Github</li>
-            <li>The Odin Project</li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://github.com/ljrobison/odin-rps/">GitHub</a></li>
+            <li><a href="https://theodinproject.com/">The Odin Project</a></li>
           </ul>
         </nav>
       </header>
@@ -37,14 +38,24 @@
       </header>
       <main class="margin">
         <div class="selection-container">
-          <button type="button" class="selection-button">✊</button>
-          <button type="button" class="selection-button">✋</button>
-          <button type="button" class="selection-button">✌</button>
+          <button type="button" class="selection-button" data-selection="rock">
+            ✊
+          </button>
+          <button type="button" class="selection-button" data-selection="paper">
+            ✋
+          </button>
+          <button
+            type="button"
+            class="selection-button"
+            data-selection="scissors"
+          >
+            ✌
+          </button>
         </div>
         <div class="result-container">
           <div class="result-table">
-            <div id="playerIdentifier">Player</div>
-            <div id="computerIdentifier">Computer</div>
+            <div id="playerIdentifier">Player: <span>0</span></div>
+            <div id="computerIdentifier">Computer: <span>0</span></div>
           </div>
         </div>
       </main>
